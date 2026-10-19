@@ -1,0 +1,14 @@
+.vs/
+.idea/
+.venv/
+*.log
+__pycache__/
+*.py[cod]
+.ruff_cache/
+
+# Game data never belongs in this repository: extracted files and built mods.
+*.nsp
+*.xci
+romfs/
+exefs/
+/build/
