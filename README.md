@@ -101,11 +101,29 @@ else): `Cheat Menu`, about 35 MB, and `Debug Patches`.
 
 ## Installing
 
-Copy both folders into the game's mod folder and start the game. The tab is in the pause menu,
-under Other Settings.
+`Cheat Menu` holds the game files it replaces (`romfs`), the menu's code (`exefs`: a program file of
+its own, `subsdk1`, and a patch of the game's program that calls it) and its cheat file (`cheats`).
+`Debug Patches` holds a cheat file only.
 
-The two cheat files work like any other: tick an entry to turn it on. The unlocks and Pikmin limits
-must be ticked before the game starts.
+- **On an emulator**, copy both `Cheat Menu` and `Debug Patches` into the game's mod folder.
+- **On a Switch running Atmosphère**, the pieces go to different places on the SD card:
+  - everything in `Cheat Menu/romfs/` goes in `atmosphere/contents/<title ID>/romfs/`, where
+    `<title ID>` is Pikmin 3 Deluxe's sixteen-digit title ID;
+  - `Cheat Menu/exefs/subsdk1` goes in `atmosphere/contents/<title ID>/exefs/`;
+  - the patch, `Cheat Menu/exefs/D467F5AD367BBEE88C51F8C468143CF23486A44B.ips`, goes in a folder of
+    its own under `atmosphere/exefs_patches/`, for example
+    `atmosphere/exefs_patches/CheatMenu/D467F5AD367BBEE88C51F8C468143CF23486A44B.ips`. Keep its
+    name: it is the build ID of the program the patch fits;
+  - the cheats go in `atmosphere/contents/<title ID>/cheats/D467F5AD367BBEE8.txt`. That is one file,
+    so put the entries you want from both cheat files into it. Atmosphère turns on every entry in it
+    when the game starts (unless `dmnt_cheats_enabled_by_default` is set to 0 in its settings), and
+    the Pikmin limits and the Mission Mode maps each exclude the others: keep only the entries you
+    want.
+
+Then start the game. The tab is in the pause menu, under Other Settings.
+
+On an emulator the two cheat files work like any other: tick an entry to turn it on. The unlocks
+and Pikmin limits must be ticked before the game starts.
 
 If you used the old all-in-one cheat file, take it out: its entries for what the menu now does would
 write over the menu's own code.
